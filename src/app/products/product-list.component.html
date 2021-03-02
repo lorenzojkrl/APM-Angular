@@ -14,7 +14,9 @@
       <div class="col-md-6"><h4>Filtered by:</h4></div>
     </div>
     <div class='table-responsive'>
-      <table class='table'>
+      <table class='table'
+        *ngIf='products && products.length'  
+      >
         <thead>
           <tr>
             <th>
@@ -30,7 +32,15 @@
           </tr>
         </thead>
         <tbody>
-          
+          <!-- ngFor structural directives repeat tr and children for p of ps -->
+          <tr *ngFor='let product of products' >
+            <td></td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productCode}}</td>
+            <td>{{product.releaseDate}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.starRating}}</td>
+          </tr>
         </tbody>
       </table>
   </div>
