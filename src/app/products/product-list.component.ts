@@ -4,6 +4,7 @@ import { IProduct } from './product';
 @Component({
   selector: 'pm-products',
   templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
   // Typescript can actually infer the type when a default value is set
