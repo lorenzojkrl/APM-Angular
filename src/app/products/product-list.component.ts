@@ -5,7 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent {
+  // Typescript can actually infer the type when a default value is set
   pageTitle: string = 'Products';
+  imageWidth: number = 50;
+  imageMargin: number = 2;
   products: any[] = [
     {
       productId: 1,

@@ -34,7 +34,15 @@
         <tbody>
           <!-- ngFor structural directives repeat tr and children for p of ps -->
           <tr *ngFor='let product of products' >
-            <td></td>
+            <td>
+              <img 
+                [src]="product.imageUrl" 
+                [title]="product.productName"
+                alt="product image"
+                [style.width.px]='imageWidth' 
+                [style.margin.px]='imageMargin'
+                >
+            </td>
             <td>{{product.productName}}</td>
             <td>{{product.productCode}}</td>
             <td>{{product.releaseDate}}</td>
