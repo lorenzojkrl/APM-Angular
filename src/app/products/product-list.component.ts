@@ -9,6 +9,8 @@ export class ProductListComponent {
   pageTitle: string = 'Products';
   imageWidth: number = 50;
   imageMargin: number = 2;
+  showImage: boolean = false;
+  listFilter: string = 'cart';
   products: any[] = [
     {
       productId: 1,
@@ -41,4 +43,9 @@ export class ProductListComponent {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+
+  // Convention methods after property definition
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
 }
