@@ -12,7 +12,20 @@ export class ProductListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
-  listFilter: string = 'cart';
+  // listFilter: string = 'cart';
+
+  _listFilter: string;
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredProducts = this.listFilter
+      ? this.performFilter(this.listFilter)
+      : this.products;
+  }
+
+  filteredProducts: IProduct[];
   products: IProduct[] = [
     {
       productId: 1,
@@ -45,6 +58,22 @@ export class ProductListComponent implements OnInit {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+
+  // Class constructor is executed when component is initialized
+  constructor() {
+    this.filteredProducts = this.products; // set filteredP to initial list
+    this.listFilter = 'cart';
+  }
+
+  performFilter(filterBy: string): IProduct[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    // filter method creates new array with elements that pass the test
+
+    return this.products.filter(
+      (product: IProduct) =>
+        product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
+    );
+  }
 
   // Convention methods after property definition
   toggleImage(): void {
