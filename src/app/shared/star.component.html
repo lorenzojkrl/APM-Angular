@@ -1,6 +1,13 @@
+<!-- 
+  Pass events from nested child component to parent container component
+  Event binding in star.compoenent template
+  bind div element click event to onClick method in star component class
+
+ -->
 <div class="crop"
      [style.width.px]="starWidth"
-     [title]="rating">
+     [title]="rating"
+     (click)='onClick()'> 
   <div style="width: 100px">
     <fa-icon [icon]="faStar"></fa-icon>
     <fa-icon [icon]="faStar"></fa-icon>

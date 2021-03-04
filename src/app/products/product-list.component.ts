@@ -65,6 +65,13 @@ export class ProductListComponent implements OnInit {
     this.listFilter = 'cart';
   }
 
+  // Pass events from child to parent container
+  // onRatingClicked is expected from template & passing message with event
+  // do something with event
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Product List:' + message;
+  }
+
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
     // filter method creates new array with elements that pass the test

@@ -54,7 +54,20 @@
             <td>{{product.releaseDate}}</td>
             <td>{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
             <td>
-              <pm-star [rating]='product.starRating'></pm-star>
+              <!-- Receiving events from child component 
+                For event binding 
+                1 - use name of the event to listen for within parentheses
+                2 - once the event is raised, \
+                  defined a method (onRatingClicked) in product-list.component class 
+                  to process the event
+                3 - $event to access the event payload from nested component
+                  e.g. info associated with that event
+                4 - write code for ratingClicked in product-list.component class
+              -->
+              <pm-star 
+                [rating]='product.starRating'
+                (ratingClicked)='onRatingClicked($event)'>
+              </pm-star>
             </td>
           </tr>
         </tbody>
