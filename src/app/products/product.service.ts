@@ -24,9 +24,9 @@ export class ProductService {
   // To use http
   constructor(private http: HttpClient) {}
 
-  // The method returns an observable of IProduct array
+  // 2 The method returns an observable of IProduct array
   getProducts(): Observable<IProduct[]> {
-    // call http get method, pass in the defined url variable
+    // 4 call http get method, pass in the defined url variable
     // we expect response to be a json structure, containing an array of products
     // so we set the get method generic parameter to IProduct array
     // The method will automatically map the response to an array of products

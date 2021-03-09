@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
   imageMargin: number = 2;
   showImage: boolean = false;
   // listFilter: string = 'cart';
+  errorMessage: string;
 
   _listFilter: string;
   get listFilter(): string {
@@ -57,9 +58,28 @@ export class ProductListComponent implements OnInit {
   }
 
   // ngOnInit handles any additional initialization tasks.
-  // E.g. retrieve data on initialization, but outside constructor 
+  // E.g. retrieve data on initialization, but outside constructor
+  // 1 Angular init the component and executes the ngOnInit method
+  // Call getProduct() method of ProductService
+  // 2 The method returns an observable of IProduct array (product.service.ts)
+  // 3 We subscribe() to that observable
+  // 4 The http.get request is submitted
+  // 5 Since this is an async operation, it executes the next line
+  // which set filterProducts but products property isn't yet set
+  // 6 when http gets data (product.service.ts) it maps it to array products
+  // and the observale emits that mapped data to any subscriber
+  // 7 subscriber receive products data and using next assigns it
+  //  to the emitted arrays of products
+  // products is now binded this.products
   ngOnInit(): void {
-    this.products = this.ProductService.getProducts();
-    this.filteredProducts = this.products; // set filteredP to initial list
+    this.ProductService.getProducts().subscribe({
+      // when observable emits the data
+      // we set our property to the returned array of products
+      next: (products) => {
+        this.products = products;
+        this.filteredProducts = this.products; // set filteredP to initial list
+      },
+      error: (err) => (this.errorMessage = err),
+    });
   }
 }
