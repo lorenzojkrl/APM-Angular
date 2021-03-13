@@ -5,10 +5,13 @@ import { Component } from '@angular/core';
   // specifiy selector for the name of component when used as directive in HTML
   selector: 'pm-root',
   template: `
-    <div>
-      <h1>{{ pageTitle }}</h1>
-      <pm-products></pm-products>
-    </div>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <a class="navbar-brand">{{ pageTitle }}</a>
+      <ul class="nav nav-pills">
+        <li><a class="nav-link">Home</a></li>
+        <li><a class="nav-link">Product List</a></li>
+      </ul>
+    </nav>
   `,
 })
 export class AppComponent {
