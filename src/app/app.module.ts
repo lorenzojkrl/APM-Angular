@@ -8,6 +8,7 @@ import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductDetailComponent } from './products/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProductListComponent,
     ConvertToSpacesPipe,
     StarComponent,
+    ProductDetailComponent,
   ],
   imports: [BrowserModule, FormsModule, FontAwesomeModule, HttpClientModule],
   bootstrap: [AppComponent],

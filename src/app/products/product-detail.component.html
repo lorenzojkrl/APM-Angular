@@ -1,0 +1,10 @@
+<div class="card" *ngIf='product'>
+  <div class="card-header">
+    <!-- 
+      ngIf check existance of product element
+      Alternative to ngIf
+      product? safe navigation operator guards agains null/undefined and returns null without accessing the property 
+    -->
+    {{pageTitle + ': ' + product.productName}}
+  </div>
+</div>
